@@ -1,0 +1,61 @@
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// // Function to print the sparse matrix
+// void printSparseMatrix(int *values, int *colIndex, int *rowStart, int rows, int cols) {
+//     printf("Sparse Matrix Representation (CSR Format):\n");
+//     for (int i = 0; i < rows; i++) {
+//         printf("Row %d: ", i);
+//         for (int j = rowStart[i]; j < rowStart[i + 1]; j++) {
+//             printf("%d ", values[j]);
+//         }
+//         printf("\n");
+//     }
+// }
+
+// int main() {
+//     int rows = 4, cols = 5;
+//     int matrix[4][5] = {
+//         {0, 0, 3, 0, 4},
+//         {0, 0, 0, 0, 0},
+//         {0, 0, 0, 0, 5},
+//         {0, 0, 0, 0, 0}
+//     };
+
+//     // Count non-zero elements
+//     int nonZeroCount = 0;
+//     for (int i = 0; i < rows; i++)
+//         for (int j = 0; j < cols; j++)
+//             if (matrix[i][j] != 0)
+//                 nonZeroCount++;
+
+//     // Allocate memory for CSR representation
+//     int *values = (int *)malloc(nonZeroCount * sizeof(int));
+//     int *colIndex = (int *)malloc(nonZeroCount * sizeof(int));
+//     int *rowStart = (int *)malloc((rows + 1) * sizeof(int));
+
+//     int k = 0;  // Index for values and colIndex
+//     rowStart[0] = 0;
+
+//     // Fill CSR format
+//     for (int i = 0; i < rows; i++) {
+//         for (int j = 0; j < cols; j++) {
+//             if (matrix[i][j] != 0) {
+//                 values[k] = matrix[i][j];
+//                 colIndex[k] = j;
+//                 k++;
+//             }
+//         }
+//         rowStart[i + 1] = k;
+//     }
+
+//     // Print the sparse matrix
+//     printSparseMatrix(values, colIndex, rowStart, rows, cols);
+
+//     // Free allocated memory
+//     free(values);
+//     free(colIndex);
+//     free(rowStart);
+
+//     return 0;
+// }
